@@ -16,7 +16,11 @@
         <div id="quiz-box">
             <p class="breadcrumbs">&nbsp;</p>
             <p class="quiz">Finished!</p>
-            <p class="quiz">You scored a<?php echo '' . $_SESSION['score'] .
+            <p class="quiz">You scored a<?php
+                      if(empty($_SESSION['score'])) {
+                              $_SESSION['score'] = 0;
+                  }
+                    echo ' ' . $_SESSION['score'] .
             ' out of 10!';
                 session_destroy();?>  </p>
 
