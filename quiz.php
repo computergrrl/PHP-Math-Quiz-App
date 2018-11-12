@@ -14,7 +14,7 @@ if(isset($_POST['correct'])) {
 
   $_SESSION['score'] += 1;
 }
-echo $_SESSION['score'] .'<br />';
+
 
 ?>
 
