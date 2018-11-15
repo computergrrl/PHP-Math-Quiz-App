@@ -6,7 +6,13 @@ $qnumber = $_GET['question'];
     if(empty($qnumber)) {
       $qnumber = 1;
     }
-
+    //keep track of what question user is on and after
+    //final question redirect to result page
+        if($qnumber <= $counter)
+        {$qnumber++;}
+        elseif ($qnumber > $counter) {
+          header('location:result.php');
+        }
 //Set a session variable to keep track of the correct answers (browser persistence)
 //If the button with the name 'correct' is clicked add 1 to the score
 //If either of the other 2 buttons are clicked score stays the same
@@ -56,20 +62,13 @@ if(isset($_POST['correct'])) {
 
     <?php
               //Display which question the user is on
-                echo '<p class="breadcrumbs">Question ' .$qnumber .
+                echo '<p class="breadcrumbs">Question ' . ($qnumber-1) .
                 ' of ' . $counter .'</p>';
 
                 //Ask the question
                 echo '<p class="quiz">' . $problem .'</p>';
 
-                //keep track of what question user is on and after
-                //final question redirect to result page
-                    if($qnumber <= $counter)
-                    {$qnumber++;}
-                    elseif ($qnumber > $counter) {
-                      header('location:result.php');
-                    }
-
+                
 
             echo '<form action="quiz.php?question=' .($qnumber) .'" method="post">';
 
