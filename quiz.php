@@ -68,7 +68,6 @@ if(isset($_POST['correct'])) {
                 //Ask the question
                 echo '<p class="quiz">' . $problem .'</p>';
 
-                
 
             echo '<form action="quiz.php?question=' .($qnumber) .'" method="post">';
 
